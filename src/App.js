@@ -1,8 +1,18 @@
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import NavBar from './components/NavBar';
 
 function App() {
   return (
-    <HeroImage/>
+    <Router>
+      <Routes>
+        <Route path='/' element={
+          <Layout>
+            <HeroImage/>
+          </Layout>
+        }/>
+      </Routes>
+    </Router>
   );
 }
 
@@ -28,5 +38,15 @@ function HeroImage() {
     </header>
   );
 }
+
+const Layout = ({ children }) => {
+  return (
+    <div style={{height: '100%'}}>
+      <NavBar />
+      {children}
+    </div>
+  )
+}
+
 
 export default App;
