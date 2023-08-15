@@ -1,16 +1,15 @@
 {
   "files": {
     "main.css": "/TeaTime/static/css/main.073c9b0a.css",
-    "main.js": "/TeaTime/static/js/main.e6e15183.js",
+    "main.js": "/TeaTime/static/js/main.ab2357c1.js",
     "static/js/787.821d3fc8.chunk.js": "/TeaTime/static/js/787.821d3fc8.chunk.js",
-    "static/media/logo.svg": "/TeaTime/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/TeaTime/index.html",
     "main.073c9b0a.css.map": "/TeaTime/static/css/main.073c9b0a.css.map",
-    "main.e6e15183.js.map": "/TeaTime/static/js/main.e6e15183.js.map",
+    "main.ab2357c1.js.map": "/TeaTime/static/js/main.ab2357c1.js.map",
     "787.821d3fc8.chunk.js.map": "/TeaTime/static/js/787.821d3fc8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.e6e15183.js"
+    "static/js/main.ab2357c1.js"
   ]
 }
