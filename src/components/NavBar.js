@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export function NavBar() {
     const [collapsed, setCollapsed] = useState(true);
@@ -27,7 +28,7 @@ export function NavBar() {
 function NavLink(props) {
     return (
         <li className="nav-item m-2">
-            <a className="nav-link" href={props.target}>{props.name}</a>
+            <Link className="nav-link" to={props.target}>{props.name}</Link>
         </li>
     );
 }
