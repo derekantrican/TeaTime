@@ -14,22 +14,22 @@ export function NavBar() {
             </button>
             <div className={`${collapsed ? 'collapse' : ''} navbar-collapse me-2`} id="navbarCollapse">
                 <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
-                    <li className="nav-item m-2">
-                        <a className="nav-link" href="/">Home</a>
-                    </li>
-                    <li className="nav-item m-2">
-                        <a className="nav-link" href="/about">About</a>
-                    </li>
-                    <li className="nav-item m-2">
-                        <a className="nav-link" href="/guidelines">Guidelines</a>
-                    </li>
-                    <li className="nav-item m-2">
-                        <a className="nav-link" href="/groups">Find a Group</a>
-                    </li>
+                    <NavLink name="Home" target="/"/>
+                    <NavLink name="About" target="/about"/>
+                    <NavLink name="Guidelines" target="/guidelines"/>
+                    <NavLink name="Find a Group" target="/groups"/>
                 </ul>
             </div>
         </nav>
     );
 };
+
+function NavLink(props) {
+    return (
+        <li className="nav-item m-2">
+            <a className="nav-link" href={props.target}>{props.name}</a>
+        </li>
+    );
+}
 
 export default NavBar;
