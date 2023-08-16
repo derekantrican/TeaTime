@@ -9,10 +9,10 @@ export function NavBar() {
                 <img className="m-2" src="turkish_teacup.png" height="50"/>
                 Tea Time
             </a>
-            <button className="navbar-toggler" onClick={() => setCollapsed(!collapsed)}>
+            <button className="navbar-toggler me-2" onClick={() => setCollapsed(!collapsed)}>
                 <span className="navbar-toggler-icon"></span>
             </button>
-            <div className={`${collapsed ? 'collapse' : ''} navbar-collapse`} id="navbarCollapse">
+            <div className={`${collapsed ? 'collapse' : ''} navbar-collapse me-2`} id="navbarCollapse">
                 <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
                     <li className="nav-item m-2">
                         <a className="nav-link" href="/">Home</a>
