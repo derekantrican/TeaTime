@@ -21,6 +21,9 @@ export function NavBar() {
                         <a className="nav-link" href="/about">About</a>
                     </li>
                     <li className="nav-item m-2">
+                        <a className="nav-link" href="/guidelines">Guidelines</a>
+                    </li>
+                    <li className="nav-item m-2">
                         <a className="nav-link" href="/groups">Find a Group</a>
                     </li>
                 </ul>
