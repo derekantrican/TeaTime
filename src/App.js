@@ -16,9 +16,19 @@ function App() {
             <HomePage/>
           </div>
         }/>
+        <Route path='/about' element={
+          <Layout>
+            {/*Todo*/}
+          </Layout>
+        }/>
         <Route path='/guidelines' element={
           <Layout>
             <Guidelines/>
+          </Layout>
+        }/>
+        <Route path='/groups' element={
+          <Layout>
+            {/*Todo*/}
           </Layout>
         }/>
       </Routes>
