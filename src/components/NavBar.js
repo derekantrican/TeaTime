@@ -21,7 +21,7 @@ export function NavBar() {
                         <a className="nav-link" href="/about">About</a>
                     </li>
                     <li className="nav-item m-2">
-                        <a className="nav-link" href="/groups">Groups</a>
+                        <a className="nav-link" href="/groups">Find a Group</a>
                     </li>
                 </ul>
             </div>
