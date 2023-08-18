@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import icon from '../images/icon.png';
 
 export function NavBar() {
     const [collapsed, setCollapsed] = useState(true);
@@ -7,7 +8,7 @@ export function NavBar() {
     return (
         <nav className="navbar navbar-dark bg-dark fixed-top navbar-expand-lg">
             <Link className="navbar-brand" to="/">
-                <img className="m-2" src="turkish_teacup.png" height="50"/>
+                <img className="m-2" src={icon} height="50"/>
                 Tea Time
             </Link>
             <button className="navbar-toggler me-2" onClick={() => setCollapsed(!collapsed)}>

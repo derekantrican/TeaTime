@@ -1,7 +1,6 @@
 # Todo:
 
 - SEO meta tags
-- Deploy images as part of source - not from imgur
 - I'd like isMobile to be de-duped as a utils.isMobile or whatever
 
 ## HashRouter vs BrowserRouter

@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import heroImage from '../images/hero_image.jpg';
 
 export function HomePage() { 
     return (
       <header style={{ paddingLeft: 0, height: '100%' }}>
         <div
           className='p-5 text-center bg-image'
-          style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', backgroundImage: "url('https://theturkeytraveler.com/wp-content/uploads/2022/08/Turkish-Tea-Shopping.jpg')", backgroundSize: 'cover', height: '100%' }}
+          style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', backgroundImage: `url(${heroImage})`, backgroundSize: 'cover', height: '100%' }}
         >
           <div className='d-flex justify-content-center align-items-center h-100'>
             <div className='text-white p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)', borderRadius: 20 }}>
