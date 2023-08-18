@@ -1,9 +1,6 @@
 # Todo:
 
 - SEO meta tags
-- Groups page
-  - List groups with city, host names, thumbnail, contact button
-  - "Host a group" button
 - Deploy images as part of source - not from imgur
 - I'd like isMobile to be de-duped as a utils.isMobile or whatever
 

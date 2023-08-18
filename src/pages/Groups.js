@@ -36,7 +36,7 @@ function GroupCard(props) {
     return (
         <div style={{display: 'flex', flexDirection: isMobile ? 'column' : 'row', justifyContent: 'space-between', borderRadius: 20, 
                      border: 'solid black', padding: 20, margin: '10px 0px', width: isMobile ? 'calc(100% - 40px)' : 850}}>
-            <img style={{height: 250 /*Todo: this should be based on view size*/, objectFit: 'cover'}} src={props.group.thumbnail}/>
+            <img style={{height: 250, objectFit: 'cover'}} src={props.group.thumbnail}/>
             <div style={{display: 'flex', flexDirection: 'column'}}>
                 <h3 style={{marginTop: 10}}>{props.group.name}</h3>
                 <p>{props.group.meets}</p>
