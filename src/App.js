@@ -4,6 +4,7 @@ import { HomePage } from './pages/Homepage';
 import { Layout } from './components/Layout';
 import { Guidelines } from './pages/Guidelines';
 import NavBar from './components/NavBar';
+import { About } from './pages/About';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         }/>
         <Route path='/about' element={
           <Layout>
-            {/*Todo*/}
+            <About/>
           </Layout>
         }/>
         <Route path='/guidelines' element={

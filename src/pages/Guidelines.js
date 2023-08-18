@@ -17,7 +17,7 @@ export function Guidelines() {
     const isMobile = width <= 768;
 
     return (
-        <div style={{ height: '100%', paddingTop: 92 /*NavBar height*/, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div className='content'>
             <div style={{width: isMobile ? '100%' : '75%', padding: '0px 10px'}}>
                 <img style={{width: '100%', height: isMobile ? 200 : '50%', objectFit: 'cover', marginTop: 20, borderRadius: 20 }} src="https://i.imgur.com/OOzr23g.jpeg"/>
                 <h2>Rules</h2>
@@ -34,14 +34,14 @@ export function Guidelines() {
                 <ul>
                     <li>
                         <p>
-                            Have tea (of course!) along with some snacks (you can either do these &quot;potluck style&quot; each week, or provide some yourself - 
+                            Have tea (of course!) along with some snacks (you can either do these "potluck style" each week, or provide some yourself - 
                             we find it works well to have some basic snacks and allow guests to bring anything extra they want to share)
                         </p>
                     </li>
                     <li>
                         <p>
                             Board games work well! Especially for people who are just starting out with English, games like Jenga, Connect 4, and Uno are pretty
-                            universal and can help teach words like colors, objects, &quot;win&quot;, &quot;lose&quot;, etc.
+                            universal and can help teach words like colors, objects, "win", "lose", etc.
                         </p>
                     </li>
                     <li>
@@ -54,7 +54,7 @@ export function Guidelines() {
                         <p>
                             Make some sort of group message (we find that WhatsApp works well as it is popular internationally). That way you can remind
                             members of upcoming Tea Times or cancel on short notice if you need to. (We also find that many people like to be on the 
-                            group message to know it's happening, even if they'll only come &quot;someday&quot;)
+                            group message to know it's happening, even if they'll only come "someday")
                         </p>
                     </li>
                 </ul>
