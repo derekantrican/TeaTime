@@ -6,10 +6,10 @@ export function NavBar() {
 
     return (
         <nav className="navbar navbar-dark bg-dark fixed-top navbar-expand-lg">
-            <a className="navbar-brand" href="/">
+            <Link className="navbar-brand" to="/">
                 <img className="m-2" src="turkish_teacup.png" height="50"/>
                 Tea Time
-            </a>
+            </Link>
             <button className="navbar-toggler me-2" onClick={() => setCollapsed(!collapsed)}>
                 <span className="navbar-toggler-icon"></span>
             </button>
