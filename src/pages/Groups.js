@@ -34,7 +34,7 @@ function GroupCard(props) {
     const isMobile = width <= 768;
 
     return (
-        <div style={{display: 'flex', flexDirection: isMobile ? 'column' : 'row', justifyContent: 'space-between', borderRadius: 20, 
+        <div style={{display: 'flex', flexDirection: isMobile ? 'column' : 'row', justifyContent: 'space-between', borderRadius: 20, backgroundColor: '#7a3f02',
                      border: 'solid black', padding: 20, margin: '10px 0px', width: isMobile ? 'calc(100% - 40px)' : 850}}>
             <img style={{height: 250, objectFit: 'cover'}} src={props.group.thumbnail}/>
             <div style={{display: 'flex', flexDirection: 'column'}}>
