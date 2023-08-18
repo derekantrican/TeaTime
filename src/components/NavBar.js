@@ -15,10 +15,10 @@ export function NavBar() {
             </button>
             <div className={`${collapsed ? 'collapse' : ''} navbar-collapse me-2`} id="navbarCollapse">
                 <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
-                    <NavLink name="Home" target="/"/>
-                    <NavLink name="About" target="/about"/>
-                    <NavLink name="Guidelines" target="/guidelines"/>
-                    <NavLink name="Find a Group" target="/groups"/>
+                    <NavLink name="Home" target="/" onClick={() => setCollapsed(true)}/>
+                    <NavLink name="About" target="/about" onClick={() => setCollapsed(true)}/>
+                    <NavLink name="Guidelines" target="/guidelines" onClick={() => setCollapsed(true)}/>
+                    <NavLink name="Find a Group" target="/groups" onClick={() => setCollapsed(true)}/>
                 </ul>
             </div>
         </nav>
@@ -28,7 +28,7 @@ export function NavBar() {
 function NavLink(props) {
     return (
         <li className="nav-item m-2">
-            <Link className="nav-link" to={props.target}>{props.name}</Link>
+            <Link className="nav-link" to={props.target} onClick={() => props.onClick()}>{props.name}</Link>
         </li>
     );
 }
