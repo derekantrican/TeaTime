@@ -5,6 +5,7 @@ import { Layout } from './components/Layout';
 import { Guidelines } from './pages/Guidelines';
 import NavBar from './components/NavBar';
 import { About } from './pages/About';
+import { Groups } from './pages/Groups';
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
         }/>
         <Route path='/groups' element={
           <Layout>
-            {/*Todo*/}
+            <Groups/>
           </Layout>
         }/>
       </Routes>
