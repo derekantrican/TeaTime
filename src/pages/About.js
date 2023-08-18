@@ -17,8 +17,8 @@ export function About() {
     const isMobile = width <= 768;
 
     return (
-        <div className='content'>
-            <div style={{width: isMobile ? '100%' : '75%', padding: '0px 10px'}}>
+        <div className='content' style={{width: isMobile ? 'calc(100% - 40px)' : '75%'}}>
+            <div style={{width: isMobile ? 'calc(100% - 40px)' : '75%'}}>
                 <img style={{width: '100%', height: isMobile ? 200 : '50%', objectFit: 'cover', marginTop: 20, borderRadius: 20 }} src="https://i.imgur.com/s3tth2g.jpeg"/>
                 <h2>Who is Tea Time for?</h2>
                 <p>You might be interested in Tea Time if....</p>

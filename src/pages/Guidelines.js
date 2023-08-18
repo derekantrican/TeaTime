@@ -18,7 +18,7 @@ export function Guidelines() {
 
     return (
         <div className='content'>
-            <div style={{width: isMobile ? '100%' : '75%', padding: '0px 10px'}}>
+            <div style={{width: isMobile ? 'calc(100% - 40px)' : '75%'}}>
                 <img style={{width: '100%', height: isMobile ? 200 : '50%', objectFit: 'cover', marginTop: 20, borderRadius: 20 }} src="https://i.imgur.com/OOzr23g.jpeg"/>
                 <h2>Rules</h2>
                 <p>There are only two rules for Tea Time:</p>
