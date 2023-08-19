@@ -29,7 +29,7 @@ export function NavBar() {
 function NavLink(props) {
     return (
         <li className="nav-item m-2">
-            <Link className="nav-link" to={props.target} onClick={() => props.onClick()}>{props.name}</Link>
+            <Link className="nav-link" style={{color: 'white'}} to={props.target} onClick={() => props.onClick()}>{props.name}</Link>
         </li>
     );
 }
