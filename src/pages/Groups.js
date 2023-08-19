@@ -1,19 +1,27 @@
 import './Content.css';
 import { useState, useEffect } from "react";
 import data from '../data/groups.json';
-import { Button } from 'bootstrap';
-import { Link } from 'react-router-dom';
+import { Dialog, DialogActions, DialogContent, TextField, Button } from '@mui/material';
 
 export function Groups() {
+    const [userInfoDialogOpen, setUserInfoDialogOpen] = useState(false);
+    const [dialogTarget, setDialogTarget] = useState(null);
+
+    const openDialog = target => {
+        setDialogTarget(target);
+        setUserInfoDialogOpen(true);
+    }
+
     return (
         <div className='content' style={{marginTop: 20}}>
             {data.map(group =>
-                <GroupCard key={group.id} group={group}/>
+                <GroupCard key={group.id} group={group} openDialog={() => openDialog(group.name)}/>
             )}
             <button className='btn btn-outline-light btn-lg' style={{backgroundColor: 'rgba(130, 174, 245, 0.5)', marginTop: 50}}
-                onClick={() => {/*Todo: open a form*/}}>
+                onClick={() => openDialog('host a group')}>
                 Host your own group!
             </button>
+            <UserInfoDialog open={userInfoDialogOpen} target={dialogTarget} onClose={() => setUserInfoDialogOpen(false)}/>
         </div>
     );
 }
@@ -43,10 +51,80 @@ function GroupCard(props) {
                 <p>{props.group.location} in {props.group.city}</p>
                 <div style={{flex: '1 0 0'}} />
                 <button className='btn btn-outline-light btn-lg' style={{backgroundColor: 'rgba(62, 207, 101, 0.4)'}}
-                    onClick={() => {/*Todo: open a form*/}}>
+                    onClick={() => props.openDialog()}>
                     Ask to join
                 </button>
             </div>
         </div>
     );
 }
+
+function UserInfoDialog(props) {
+    const [nameErrorMsg, setNameErrorMsg] = useState();
+    const [emailErrorMsg, setEmailErrorMsg] = useState();
+    const [phoneErrorMsg, setPhoneErrorMsg] = useState();
+    const [result, setResult] = useState({});
+
+    const onChange = (value, field) => {
+        setResult((_result) => ({ ..._result, [field]: value }));
+    }
+
+    useEffect(() => onChange(props.target, 'target'));
+
+    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+    const phoneRegex = /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/g;
+
+    const onSubmit = () => {
+        if (!result.name) {
+            setNameErrorMsg("Name is required");
+            return;
+        }
+        else {
+            setNameErrorMsg(null);
+        }
+
+        if (!result.email && !result.phone) {
+            setEmailErrorMsg("Either phone or email is required");
+            setPhoneErrorMsg("Either phone or email is required");
+            return;
+        }
+        else if (result.email && !emailRegex.test(result.email)) {
+            setEmailErrorMsg("Please enter a valid email address");
+            setPhoneErrorMsg(null);
+            return;
+        }
+        else if (result.phone && !phoneRegex.test(result.phone)) {
+            setPhoneErrorMsg("Please enter a valid phone number");
+            setEmailErrorMsg(null);
+            return;
+        }
+        else {
+            setEmailErrorMsg(null);
+            setPhoneErrorMsg(null);
+        }
+
+        // Todo: need onsubmit (and show a toast?)
+        props.onClose();
+    };
+
+    return (
+        <Dialog open={props.open} onClose={() => props.onClose()}>
+            <DialogContent>
+                <h4>Please fill out the following information so we can get you connected</h4>
+                <TextField autoFocus fullWidth margin="dense" label="Name" variant="standard"
+                    helperText={nameErrorMsg} error={nameErrorMsg != null}
+                    onChange={e => onChange(e.target.value, 'name')}/>
+                <TextField fullWidth margin="dense" label="Email" variant="standard"
+                    helperText={emailErrorMsg} error={emailErrorMsg != null}
+                    onChange={e => onChange(e.target.value, 'email')}/>
+                <TextField fullWidth margin="dense" label="Phone" variant="standard"
+                    helperText={phoneErrorMsg} error={phoneErrorMsg != null}
+                    onChange={e => onChange(e.target.value, 'phone')}/>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={() => props.onClose()}>Cancel</Button>
+              <Button onClick={() => onSubmit()}>Submit</Button>
+            </DialogActions>
+        </Dialog>
+    );
+  }
