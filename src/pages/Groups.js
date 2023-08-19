@@ -1,15 +1,22 @@
 import './Content.css';
 import { useState, useEffect } from "react";
 import data from '../data/groups.json';
-import { Dialog, DialogActions, DialogContent, TextField, Button } from '@mui/material';
+import { Dialog, DialogActions, DialogContent, TextField, Button, Snackbar } from '@mui/material';
 
 export function Groups() {
     const [userInfoDialogOpen, setUserInfoDialogOpen] = useState(false);
     const [dialogTarget, setDialogTarget] = useState(null);
+    const [snackbarShown, setSnackbarShown] = useState(null);
 
     const openDialog = target => {
         setDialogTarget(target);
         setUserInfoDialogOpen(true);
+    }
+
+    const onSubmit = result => {
+        console.log(result);
+        //Todo: send result
+        setSnackbarShown(true);
     }
 
     return (
@@ -21,7 +28,9 @@ export function Groups() {
                 onClick={() => openDialog('host a group')}>
                 Host your own group!
             </button>
-            <UserInfoDialog open={userInfoDialogOpen} target={dialogTarget} onClose={() => setUserInfoDialogOpen(false)}/>
+            <UserInfoDialog open={userInfoDialogOpen} target={dialogTarget} onClose={() => setUserInfoDialogOpen(false)} onSubmit={result => onSubmit(result)}/>
+            <Snackbar open={snackbarShown} autoHideDuration={3000} severity="success" onClose={() => setSnackbarShown(false)}
+                message="Sent! Someone will get in contact with you soon" anchorOrigin={{vertical: 'bottom', horizontal: 'right'}}/>
         </div>
     );
 }
@@ -103,7 +112,7 @@ function UserInfoDialog(props) {
             setPhoneErrorMsg(null);
         }
 
-        // Todo: need onsubmit (and show a toast?)
+        props.onSubmit(result);
         props.onClose();
     };
 
