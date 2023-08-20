@@ -1,5 +1,6 @@
 # Todo:
 
+- Change group page dialogs to make it clearer what you clicked on (show group name on dialog)
 - SEO meta tags
 - I'd like isMobile to be de-duped as a utils.isMobile or whatever
 
