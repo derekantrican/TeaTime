@@ -47,8 +47,8 @@ export function Guidelines() {
                     </li>
                     <li>
                         <p>
-                            Host in a home (if you can). Not only is it easier to manage food, drink, etc without transporting it to a venue, a home
-                            generates a warmness &amp; closeness better than a venue like a church or community center
+                            Host in a home (if you can). Not only is it easier to manage food, drink, etc without transporting it to a venue, a home can
+                            generate a unique warmness & closeness.
                         </p>
                     </li>
                     <li>
