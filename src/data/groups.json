@@ -6,5 +6,13 @@
         "name" : "Tea Time at the Antricans'",
         "meets" : "Every Tuesday at 7pm",
         "thumbnail" : "https://i.imgur.com/9cgejv0.jpeg"
+    },
+    {
+        "id" : "2",
+        "city" : "Lakewood, WA",
+        "location" : "Lake City Community Church",
+        "name" : "English with Friends",
+        "meets" : "Every Monday at 6:30pm",
+        "thumbnail" : "https://i.imgur.com/hrbjt9C.jpg"
     }
 ]
