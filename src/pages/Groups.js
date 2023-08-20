@@ -13,9 +13,14 @@ export function Groups() {
         setUserInfoDialogOpen(true);
     }
 
-    const onSubmit = result => {
+    const onSubmit = async result => {
         console.log(result);
-        //Todo: send result
+
+        await fetch("https://script.google.com/macros/s/AKfycbyNq3VPSRANLrCjnzpW1NKKYNjh-b3ovACRh04s1YkkZBL6AopjjGweYzQGB-WN2NMB/exec" /*Todo: use a proper server later*/, {
+            method: 'post',
+            body: JSON.stringify(result),
+        });
+
         setSnackbarShown(true);
     }
 
@@ -25,7 +30,7 @@ export function Groups() {
                 <GroupCard key={group.id} group={group} openDialog={() => openDialog(group.name)}/>
             )}
             <button className='btn btn-outline-light btn-lg' style={{backgroundColor: 'rgba(130, 174, 245, 0.5)', marginTop: 50}}
-                onClick={() => openDialog('host a group')}>
+                onClick={() => openDialog('Host a group')}>
                 Host your own group!
             </button>
             <UserInfoDialog open={userInfoDialogOpen} target={dialogTarget} onClose={() => setUserInfoDialogOpen(false)} onSubmit={result => onSubmit(result)}/>
@@ -113,6 +118,9 @@ function UserInfoDialog(props) {
         }
 
         props.onSubmit(result);
+
+        setResult({}); //Reset data in case form is opened again
+
         props.onClose();
     };
 
