@@ -2,6 +2,7 @@ import './Content.css';
 import { useState, useEffect } from "react";
 import data from '../data/groups.json';
 import { Dialog, DialogActions, DialogContent, TextField, Button, Snackbar } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 export function Groups() {
     const [userInfoDialogOpen, setUserInfoDialogOpen] = useState(false);
@@ -86,7 +87,7 @@ function UserInfoDialog(props) {
     useEffect(() => onChange(props.target, 'target'));
 
     const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-    const phoneRegex = /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/g;
+    const phoneRegex = /^(\+?\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/g;
 
     const onSubmit = () => {
         if (!result.name) {
@@ -127,7 +128,17 @@ function UserInfoDialog(props) {
     return (
         <Dialog open={props.open} onClose={() => props.onClose()}>
             <DialogContent>
-                <h4>Please fill out the following information so we can get you connected</h4>
+                {props.target == 'Host a group' ? 
+                    <div>
+                        <h4>Thanks for your interest in hosting a group!</h4>
+                        <p><i>Make sure you have reviewed the rules & tips on the <Link to="/guidelines">guidelines page</Link>.</i></p>
+                    </div>
+                :
+                <div>
+                    <h4>Please fill out the following information so we can get you connected</h4>
+                    <p><i>Your information will be sent to the leaders for {props.target}</i></p>
+                </div>
+                }
                 <TextField autoFocus fullWidth margin="dense" label="Name" variant="standard"
                     helperText={nameErrorMsg} error={nameErrorMsg != null}
                     onChange={e => onChange(e.target.value, 'name')}/>
@@ -137,6 +148,11 @@ function UserInfoDialog(props) {
                 <TextField fullWidth margin="dense" label="Phone" variant="standard"
                     helperText={phoneErrorMsg} error={phoneErrorMsg != null}
                     onChange={e => onChange(e.target.value, 'phone')}/>
+                {props.target == 'Host a group' ?
+                    <TextField fullWidth multiline margin="dense" label="Tell us a little about yourself" variant="standard"
+                        onChange={e => onChange(e.target.value, 'aboutMe')}/>
+                : null
+                }
             </DialogContent>
             <DialogActions>
               <Button onClick={() => props.onClose()}>Cancel</Button>

@@ -1,6 +1,5 @@
 # Todo:
 
-- Change group page dialogs to make it clearer what you clicked on (show group name on dialog)
 - Have a description blurb for each group (and make the "what happens at Tea Time" on the About page more generic)
 - SEO meta tags
 - I'd like isMobile to be de-duped as a utils.isMobile or whatever
