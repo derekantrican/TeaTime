@@ -6,10 +6,12 @@ import { Guidelines } from './pages/Guidelines';
 import NavBar from './components/NavBar';
 import { About } from './pages/About';
 import { Groups } from './pages/Groups';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <HashRouter>
+      <ScrollToTop/>
       <Routes>
         <Route path='/' element={
           // Using div & NavBar directly for HomePage as it needs height 100% (minHeight 100% doesn't seem to work)
