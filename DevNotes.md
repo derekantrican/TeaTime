@@ -3,6 +3,7 @@
 - Have a description blurb for each group (and make the "what happens at Tea Time" on the About page more generic)
 - SEO meta tags
 - I'd like isMobile to be de-duped as a utils.isMobile or whatever
+- Google Analytics? https://github.com/react-ga/react-ga might work
 
 ## HashRouter vs BrowserRouter
 

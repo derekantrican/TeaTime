@@ -27,6 +27,7 @@ export function Groups() {
 
     return (
         <div className='content' style={{marginTop: 20}}>
+            {/*Todo: if we eventually get a large amount of groups, we might want a "area" (eg Eastside, Tacoma, Seattle) filter or an embedded map*/}
             {data.map(group =>
                 <GroupCard key={group.id} group={group} openDialog={() => openDialog(group.name)}/>
             )}
