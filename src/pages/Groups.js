@@ -136,7 +136,7 @@ function UserInfoDialog(props) {
                 :
                 <div>
                     <h4>Please fill out the following information so we can get you connected</h4>
-                    <p><i>Your information will be sent to the leaders for {props.target}</i></p>
+                    <p><i>Your information will be sent to the leaders of {props.target}</i></p>
                 </div>
                 }
                 <TextField autoFocus fullWidth margin="dense" label="Name" variant="standard"
