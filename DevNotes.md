@@ -8,6 +8,7 @@
 - SEO meta tags
 - I'd like isMobile to be de-duped as a utils.isMobile or whatever
 - Google Analytics? https://github.com/react-ga/react-ga might work
+- In the future, if this site actually becomes popular, we may want to give group managers a way to manage their group info (eg date & time meeting or description) without going through me. Like an "admin view".
 
 ## HashRouter vs BrowserRouter
 
