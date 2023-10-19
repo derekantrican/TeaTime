@@ -2,6 +2,7 @@
 
 - Have a description blurb for each group (and make the "what happens at Tea Time" on the About page more generic)
 - Smaller res pictures for mobile loading
+- Group images should be loaded locally rather than from imgur
 - It'd be nice to have a `/groups/{id}` endpoint that can link directly to a group (so that groups advertising at events can provide links/qr codes straight to their group)
   - I'm not exactly sure what "link directly to a group" will mean in practice. Maybe it just means that group is listed first?
 - SEO meta tags

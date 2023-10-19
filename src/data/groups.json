@@ -14,5 +14,13 @@
         "name" : "English with Friends",
         "meets" : "Every Monday at 6:30pm",
         "thumbnail" : "https://i.imgur.com/hrbjt9C.jpg"
+    },
+    {
+        "id" : "3",
+        "city" : "Rainier Beach, WA",
+        "location" : "Overmyer home",
+        "name" : "Tea Time South Seattle",
+        "meets" : "Every Tuesday at 6:30pm",
+        "thumbnail" : "https://i.imgur.com/iAWr2u0.jpeg"
     }
 ]
