@@ -32,10 +32,24 @@ export function Guidelines() {
                     </li>
                 </ol>
                 <h2>Tips for a great Tea Time</h2>
+                <i>
+                    <p>
+                        Ultimately, Tea Time is just a time for hanging out & having conversation - with a particular focus on the international & refugee community. 
+                        But this means that there is flexibility for groups to take many forms - whether meeting in a home, meeting at a park, or meeting at a gym to
+                        play some sports - the community is what matters. This means that the below are just "tips" and not requirements to host a group!
+                    </p>
+                </i>
                 <ul>
                     <li>
                         <p>
-                            Have tea (of course!) along with some snacks (you can either do these "potluck style" each week, or provide some yourself - 
+                            Make some sort of group message (we find that WhatsApp works well as it is popular internationally). That way you can remind
+                            members of upcoming Tea Times or cancel on short notice if you need to. (We also find that many people like to be on the 
+                            group message to know it's happening, even if they'll only come "someday")
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Have tea along with some snacks (you can either do these "potluck style" each week, or provide some yourself - 
                             we find it works well to have some basic snacks and allow guests to bring anything extra they want to share)
                         </p>
                     </li>
@@ -49,13 +63,6 @@ export function Guidelines() {
                         <p>
                             Host in a home (if you can). Not only is it easier to manage food, drink, etc without transporting it to a venue, a home can
                             generate a unique warmness & closeness.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Make some sort of group message (we find that WhatsApp works well as it is popular internationally). That way you can remind
-                            members of upcoming Tea Times or cancel on short notice if you need to. (We also find that many people like to be on the 
-                            group message to know it's happening, even if they'll only come "someday")
                         </p>
                     </li>
                 </ul>
