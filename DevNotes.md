@@ -1,5 +1,6 @@
 # Todo:
 
+- On mobile, auto hide navbar when the page is scrolled down
 - Have a description blurb for each group (and make the "what happens at Tea Time" on the About page more generic)
 - Smaller res pictures for mobile loading
 - Group images should be loaded locally rather than from imgur
