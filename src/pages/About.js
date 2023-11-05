@@ -1,6 +1,7 @@
 import './Content.css';
 import { useState, useEffect } from "react";
 import aboutBanner from '../images/about_banner.jpeg';
+import aboutBannerMobile from '../images/about_banner_mobile.jpeg';
 
 export function About() {
     const [width, setWidth] = useState(window.innerWidth);
@@ -20,7 +21,7 @@ export function About() {
     return (
         <div className='content'>
             <div style={{width: isMobile ? 'calc(100% - 40px)' : '75%'}}>
-                <img style={{width: '100%', height: isMobile ? 200 : '50%', objectFit: 'cover', marginTop: 20, borderRadius: 20 }} src={aboutBanner}/>
+                <img style={{width: '100%', height: isMobile ? 200 : '50%', objectFit: 'cover', marginTop: 20, borderRadius: 20 }} src={isMobile ? aboutBannerMobile : aboutBanner}/>
                 <h2>Who is Tea Time for?</h2>
                 <p>You might be interested in Tea Time if....</p>
                 <ul>
