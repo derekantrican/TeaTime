@@ -7,8 +7,14 @@ import NavBar from './components/NavBar';
 import { About } from './pages/About';
 import { Groups } from './pages/Groups';
 import ScrollToTop from './components/ScrollToTop';
+import ReactGA from "react-ga4";
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    ReactGA.initialize("G-604M3HR3LC");
+  }, []);
+
   return (
     <HashRouter>
       <ScrollToTop/>

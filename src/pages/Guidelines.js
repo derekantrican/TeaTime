@@ -1,5 +1,6 @@
 import './Content.css';
 import { useState, useEffect } from "react";
+import ReactGA from "react-ga4";
 
 export function Guidelines() {
     const [width, setWidth] = useState(window.innerWidth);
@@ -12,6 +13,10 @@ export function Guidelines() {
         return () => {
             window.removeEventListener('resize', handleWindowSizeChange);
         }
+    }, []);
+
+    useEffect(() => {
+        ReactGA.send({ hitType: "pageview", page: "/#/guidelines", title: "Guidelines" });
     }, []);
     
     const isMobile = width <= 768;

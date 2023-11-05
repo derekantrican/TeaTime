@@ -3,11 +3,16 @@ import { useState, useEffect } from "react";
 import data from '../data/groups.json';
 import { Dialog, DialogActions, DialogContent, TextField, Button, Snackbar } from '@mui/material';
 import { Link } from 'react-router-dom';
+import ReactGA from "react-ga4";
 
 export function Groups() {
     const [userInfoDialogOpen, setUserInfoDialogOpen] = useState(false);
     const [dialogTarget, setDialogTarget] = useState(null);
     const [snackbarShown, setSnackbarShown] = useState(null);
+
+    useEffect(() => {
+        ReactGA.send({ hitType: "pageview", page: "/#/groups", title: "Groups" });
+    }, []);
 
     const openDialog = target => {
         setDialogTarget(target);

@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import ReactGA from "react-ga4";
 
-export function HomePage() { 
+export function HomePage() {
+  useEffect(() => {
+    ReactGA.send({ hitType: "pageview", page: "/", title: "Home" });
+  }, []);
+
     return (
       <header style={{ paddingLeft: 0, height: '100%' }}>
         <div
