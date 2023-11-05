@@ -1,12 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import icon from '../images/icon.png';
 
 export function NavBar() {
     const [collapsed, setCollapsed] = useState(true);
+    const [show, setShow] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
+  
+    const controlNavbar = () => {
+      if (typeof window !== 'undefined') { 
+        //If scrolling down, hide the website (but only on mobile)
+        if (window.scrollY > lastScrollY && window.innerWidth <= 768) {
+          setShow(false); 
+        }
+        else {
+          setShow(true);  
+        }
+  
+        setLastScrollY(window.scrollY); 
+      }
+    };
+  
+    useEffect(() => {
+      if (typeof window !== 'undefined') {
+        window.addEventListener('scroll', controlNavbar);
+  
+        return () => {
+          window.removeEventListener('scroll', controlNavbar);
+        };
+      }
+    }, [lastScrollY]);
 
     return (
-        <nav className="navbar navbar-dark bg-dark fixed-top navbar-expand-lg">
+        <nav className={`navbar navbar-dark bg-dark navbar-expand-lg ${show ? 'fixed-top' : ''}`}>
             <Link className="navbar-brand" to="/">
                 <img className="m-2" src={icon} height="50"/>
                 Tea Time
