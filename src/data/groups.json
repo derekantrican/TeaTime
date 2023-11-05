@@ -5,7 +5,8 @@
         "location" : "Antrican home",
         "name" : "Tea Time at the Antricans'",
         "meets" : "Every Tuesday at 7pm",
-        "thumbnail" : "https://i.imgur.com/9cgejv0.jpeg"
+        "thumbnail" : "images/group_images/1.jpg",
+        "thumbnail_mobile" : "images/group_images/1_mobile.jpg"
     },
     {
         "id" : "2",
@@ -13,7 +14,8 @@
         "location" : "Lake City Community Church",
         "name" : "English with Friends",
         "meets" : "Every Monday at 6:30pm",
-        "thumbnail" : "https://i.imgur.com/hrbjt9C.jpg"
+        "thumbnail" : "images/group_images/2.jpg",
+        "thumbnail_mobile" : "images/group_images/2.jpg"
     },
     {
         "id" : "3",
@@ -21,6 +23,7 @@
         "location" : "Overmyer home",
         "name" : "Tea Time South Seattle",
         "meets" : "Every Tuesday at 6:30pm",
-        "thumbnail" : "https://i.imgur.com/iAWr2u0.jpeg"
+        "thumbnail" : "images/group_images/3.jpg",
+        "thumbnail_mobile" : "images/group_images/3_mobile.jpg"
     }
 ]

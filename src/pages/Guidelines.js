@@ -1,7 +1,5 @@
 import './Content.css';
 import { useState, useEffect } from "react";
-import guidelineBanner from '../images/guidelines_banner.jpeg';
-import guidelineBannerMobile from '../images/guidelines_banner.jpeg';
 
 export function Guidelines() {
     const [width, setWidth] = useState(window.innerWidth);
@@ -21,7 +19,7 @@ export function Guidelines() {
     return (
         <div className='content'>
             <div style={{width: isMobile ? 'calc(100% - 40px)' : '75%'}}>
-                <img style={{width: '100%', height: isMobile ? 200 : '50%', objectFit: 'cover', marginTop: 20, borderRadius: 20 }} src={isMobile ? guidelineBannerMobile : guidelineBanner}/>
+                <img style={{width: '100%', height: isMobile ? 200 : '50%', objectFit: 'cover', marginTop: 20, borderRadius: 20 }} src={`images/guidelines_banner${isMobile ? '_mobile' : ''}.jpeg`}/>
                 <h2>Rules</h2>
                 <p>There are only two rules for Tea Time:</p>
                 <ol>
