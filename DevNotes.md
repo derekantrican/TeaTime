@@ -1,6 +1,5 @@
 # Todo:
 
-- Add a contact button/page somewhere. A mailto link is probably sufficient (but use the `@tea-time.social` domain for the email)
 - Have a description blurb for each group (and make the "what happens at Tea Time" on the About page more generic)
 - Smaller res pictures for mobile loading
 - Group images should be loaded locally rather than from imgur
