@@ -1,5 +1,5 @@
 import './App.css';
-import { HashRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { HomePage } from './pages/Homepage';
 import { Layout } from './components/Layout';
 import { Guidelines } from './pages/Guidelines';
@@ -16,7 +16,7 @@ function App() {
   }, []);
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <ScrollToTop/>
       <Routes>
         <Route path='/' element={
@@ -42,7 +42,7 @@ function App() {
           </Layout>
         }/>
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 

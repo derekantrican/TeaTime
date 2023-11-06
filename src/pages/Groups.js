@@ -11,7 +11,7 @@ export function Groups() {
     const [snackbarShown, setSnackbarShown] = useState(null);
 
     useEffect(() => {
-        ReactGA.send({ hitType: "pageview", page: "/#/groups", title: "Groups" });
+        ReactGA.send({ hitType: "pageview", page: "/groups", title: "Groups" });
     }, []);
 
     const openDialog = target => {

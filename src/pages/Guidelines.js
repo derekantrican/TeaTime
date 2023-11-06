@@ -16,7 +16,7 @@ export function Guidelines() {
     }, []);
 
     useEffect(() => {
-        ReactGA.send({ hitType: "pageview", page: "/#/guidelines", title: "Guidelines" });
+        ReactGA.send({ hitType: "pageview", page: "/guidelines", title: "Guidelines" });
     }, []);
     
     const isMobile = width <= 768;

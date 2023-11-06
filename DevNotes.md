@@ -7,12 +7,6 @@
 - I'd like isMobile to be de-duped as a utils.isMobile or whatever
 - In the future, if this site actually becomes popular, we may want to give group managers a way to manage their group info (eg date & time meeting or description) without going through me. Like an "admin view".
 
-## HashRouter vs BrowserRouter
-
-It would be great to be able to use BrowserRouter (urls like '/groups') rather than HashRouter (urls like '/#/groups'), but GitHub Pages doesn't seem to support it. There's a workaround [here](https://github.com/rafgraph/spa-github-pages) by using a custom 404 page, but that still shows a "that page cannot be found" in the browser even when the page is navigated to. Ultimately, this is probably on GitHub Pages to fix.
-
-Maybe, we can use a version of the custom 404 page solution to *allow* people to put 'tea-time.social/groups' in their browser and still get to the page.
-
 ## Dev Process
 
 ### Publishing
