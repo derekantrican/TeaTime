@@ -71,7 +71,7 @@ function GroupCard(props) {
                 <p>{props.group.meets}</p>
                 <p>{props.group.location} in {props.group.city}</p>
                 <div style={{flex: '1 0 0'}} />
-                <button className='btn btn-outline-light btn-lg' style={{backgroundColor: 'rgba(62, 207, 101, 0.4)'}}
+                <button className='btn btn-outline-light btn-lg' style={{backgroundColor: 'rgba(62, 207, 101, 0.4)', minWidth: isMobile ? 0 : 330}}
                     onClick={() => props.openDialog()}>
                     Ask for info
                 </button>
