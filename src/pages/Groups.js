@@ -86,6 +86,15 @@ function UserInfoDialog(props) {
     const [phoneErrorMsg, setPhoneErrorMsg] = useState();
     const [result, setResult] = useState({});
 
+    useEffect(() => {
+        ReactGA.event({
+            category: "groups",
+            action: "contact",
+            label: props.target,
+            nonInteraction: false,
+        });
+    }, []);
+
     const onChange = (value, field) => {
         setResult((_result) => ({ ..._result, [field]: value }));
     }
