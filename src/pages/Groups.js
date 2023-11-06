@@ -73,7 +73,7 @@ function GroupCard(props) {
                 <div style={{flex: '1 0 0'}} />
                 <button className='btn btn-outline-light btn-lg' style={{backgroundColor: 'rgba(62, 207, 101, 0.4)'}}
                     onClick={() => props.openDialog()}>
-                    Ask to join
+                    Ask for info
                 </button>
             </div>
         </div>
