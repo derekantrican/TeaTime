@@ -18,3 +18,25 @@ body,
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+@keyframes hideNavAnimation {
+  from {top: 0;}
+  to {top: -6rem;}
+}
+
+.hideNav {
+  animation-name: hideNavAnimation;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes showNavAnimation {
+  from { top: -6rem;}
+  to {top: 0;}
+}
+
+.showNav {
+  animation-name: showNavAnimation;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}

@@ -1,37 +1,65 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 
 export function NavBar() {
     const [collapsed, setCollapsed] = useState(true);
-    const [show, setShow] = useState(true);
-    const [lastScrollY, setLastScrollY] = useState(0);
-  
-    const controlNavbar = () => {
-      if (typeof window !== 'undefined') { 
-        //If scrolling down, hide the website (but only on mobile)
-        if (window.scrollY > lastScrollY && window.innerWidth <= 768) {
-          setShow(false); 
+    const [navBarHasHiddenOnce, setNavBarHasHiddenOnce] = useState(false); //Use this to make show we don't run the 'showNav' animation when the page first loads
+
+    //------------------------------------------------------
+    // useHideOnScrollDown and useDebounce taken from https://codesandbox.io/p/sandbox/hide-navbar-on-scroll-uj7uc
+    const useHideOnScrollDown = () => {
+      const [isVisible, setIsVisible] = useState(true);
+      const [scrollY, setScrollY] = useState(0);
+      const dbScrollY = useDebounce(scrollY, 100);
+      
+      const handleScroll = useCallback(() => {
+        const cur = window.scrollY;
+        const visible = dbScrollY > cur || cur < 10
+        setIsVisible(visible);
+
+        if (!visible) {
+          setNavBarHasHiddenOnce(true);
         }
-        else {
-          setShow(true);  
-        }
-  
-        setLastScrollY(window.scrollY); 
-      }
+
+        setScrollY(cur);
+      }, [dbScrollY]);
+      
+      useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+      }, [handleScroll]);
+
+      return isVisible;
     };
-  
-    useEffect(() => {
-      if (typeof window !== 'undefined') {
-        window.addEventListener('scroll', controlNavbar);
-  
-        return () => {
-          window.removeEventListener('scroll', controlNavbar);
-        };
-      }
-    }, [lastScrollY]);
+    
+    const useDebounce = (value, delay) => {
+      // State and setters for debounced value
+      const [debouncedValue, setDebouncedValue] = useState(value);
+      
+      useEffect(
+        () => {
+          // Update debounced value after delay
+          const handler = setTimeout(() => {
+            setDebouncedValue(value);
+          }, delay);
+          // Cancel the timeout if value changes (also on delay change or unmount)
+          // This is how we prevent debounced value from updating if value is changed ...
+          // .. within the delay period. Timeout gets cleared and restarted.
+          return () => {
+            clearTimeout(handler);
+          };
+        },
+        [value, delay] // Only re-call effect if value or delay changes
+      );
+
+      return debouncedValue;
+    };
+
+    const isVisible = useHideOnScrollDown();
+    //------------------------------------------------------
 
     return (
-        <nav className={`navbar navbar-dark bg-dark navbar-expand-lg ${show ? 'fixed-top' : ''}`}>
+        <nav className={`navbar navbar-dark bg-dark navbar-expand-lg fixed-top ${!isVisible ? 'hideNav' : navBarHasHiddenOnce ? 'showNav' : ''}`}>
             <Link className="navbar-brand" to="/">
                 <img className="m-2" src='images/icon.png' height="50"/>
                 Tea Time
