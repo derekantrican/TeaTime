@@ -1,25 +1,14 @@
 import './Content.css';
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import ReactGA from "react-ga4";
+import { useIsMobile } from '../hooks/isMobile';
 
 export function About() {
-    const [width, setWidth] = useState(window.innerWidth);
-
-    function handleWindowSizeChange() {
-        setWidth(window.innerWidth);
-    }
-    useEffect(() => {
-        window.addEventListener('resize', handleWindowSizeChange);
-        return () => {
-            window.removeEventListener('resize', handleWindowSizeChange);
-        }
-    }, []);
-
     useEffect(() => {
         ReactGA.send({ hitType: "pageview", page: "/about", title: "About" });
     }, []);
     
-    const isMobile = width <= 768;
+    const isMobile = useIsMobile();
 
     return (
         <div className='content'>
