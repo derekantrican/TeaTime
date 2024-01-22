@@ -4,6 +4,7 @@ import data from '../data/groups.json';
 import { Dialog, DialogActions, DialogContent, TextField, Button, Snackbar } from '@mui/material';
 import { Link } from 'react-router-dom';
 import ReactGA from "react-ga4";
+import { useIsMobile } from '../hooks/isMobile';
 
 export function Groups() {
     const [userInfoDialogOpen, setUserInfoDialogOpen] = useState(false);
@@ -48,19 +49,7 @@ export function Groups() {
 }
 
 function GroupCard(props) {
-    const [width, setWidth] = useState(window.innerWidth);
-
-    function handleWindowSizeChange() {
-        setWidth(window.innerWidth);
-    }
-    useEffect(() => {
-        window.addEventListener('resize', handleWindowSizeChange);
-        return () => {
-            window.removeEventListener('resize', handleWindowSizeChange);
-        }
-    }, []);
-    
-    const isMobile = width <= 768;
+    const isMobile = useIsMobile();
 
     return (
         <div style={{display: 'flex', flexDirection: isMobile ? 'column' : 'row', justifyContent: 'space-between', borderRadius: 20, backgroundColor: '#7a3f02',
