@@ -2,14 +2,18 @@ import './Content.css';
 import { useState, useEffect } from "react";
 import data from '../data/groups.json';
 import { Dialog, DialogActions, DialogContent, TextField, Button, Snackbar } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import ReactGA from "react-ga4";
 import { useIsMobile } from '../hooks/isMobile';
+
+const baseUrl = () => process.env.NODE_ENV != 'production' ? 'http://localhost:3000/' : 'https://tea-time.social/';
 
 export function Groups() {
     const [userInfoDialogOpen, setUserInfoDialogOpen] = useState(false);
     const [dialogTarget, setDialogTarget] = useState(null);
     const [snackbarShown, setSnackbarShown] = useState(null);
+
+    const { groupParam } = useParams(); //Get the target group from the url (eg '/groups/1')
 
     useEffect(() => {
         ReactGA.send({ hitType: "pageview", page: "/groups", title: "Groups" });
@@ -31,10 +35,20 @@ export function Groups() {
         setSnackbarShown(true);
     }
 
+    Array.prototype.putItemFirst = function(matchFunc) {
+        return this.reduce((array, element) => {
+            if (matchFunc(element)) {
+                return [element, ...array];
+            }
+
+            return [...array, element];
+        }, []);
+    }
+
     return (
         <div className='content' style={{marginTop: 20}}>
             {/*Todo: if we eventually get a large amount of groups, we might want a "area" (eg Eastside, Tacoma, Seattle) filter or an embedded map*/}
-            {data.map(group =>
+            {data.putItemFirst(group => groupParam && group.id == groupParam).map(group =>
                 <GroupCard key={group.id} group={group} openDialog={() => openDialog(group.name)}/>
             )}
             <button className='btn btn-outline-light btn-lg' style={{backgroundColor: 'rgba(130, 174, 245, 0.5)', marginTop: 50}}
@@ -54,7 +68,7 @@ function GroupCard(props) {
     return (
         <div style={{display: 'flex', flexDirection: isMobile ? 'column' : 'row', justifyContent: 'space-between', borderRadius: 20, backgroundColor: '#7a3f02',
                      border: 'solid black', padding: 20, margin: '10px 0px', width: isMobile ? 'calc(100% - 40px)' : 850}}>
-            <img style={{height: 250, objectFit: 'cover'}} src={props.group.thumbnail}/>
+            <img style={{height: 250, objectFit: 'cover'}} src={baseUrl() + props.group.thumbnail}/>
             <div style={{display: 'flex', flexDirection: 'column'}}>
                 <h3 style={{marginTop: 10}}>{props.group.name}</h3>
                 <p>{props.group.meets}</p>

@@ -36,7 +36,7 @@ function App() {
             <Guidelines/>
           </Layout>
         }/>
-        <Route path='/groups' element={
+        <Route path='/groups/:groupParam?' element={
           <Layout>
             <Groups/>
           </Layout>
