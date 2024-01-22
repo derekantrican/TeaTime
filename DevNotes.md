@@ -4,6 +4,7 @@
 - It'd be nice to have a `/groups/{id}` endpoint that can link directly to a group (so that groups advertising at events can provide links/qr codes straight to their group)
   - I'm not exactly sure what "link directly to a group" will mean in practice. Maybe it just means that group is listed first?
 - In the future, if this site actually becomes popular, we may want to give group managers a way to manage their group info (eg date & time meeting or description) without going through me. Like an "admin view".
+- It might be interesting to have translations of this site available (eg English, Turkish, Pashto, etc) - however, we don't usually have many fluent speakers to if someone comes expecting that (based on the website) it might be hard. It *could* be a listing on each group, though.
 
 ## Dev Process
 
