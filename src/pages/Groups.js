@@ -102,7 +102,7 @@ function UserInfoDialog(props) {
         setResult((_result) => ({ ..._result, [field]: value }));
     }
 
-    useEffect(() => onChange(props.target, 'target'));
+    useEffect(() => onChange(props.target, 'target'), []);
 
     const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
     const phoneRegex = /^(\+?\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/g;
