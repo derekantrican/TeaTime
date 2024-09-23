@@ -59,6 +59,21 @@ export function Guidelines() {
                         </p>
                     </li>
                 </ul>
+                <img style={{width: '100%', height: isMobile ? 200 : '50%', objectFit: 'cover', marginTop: 20, borderRadius: 20 }} src={`images/special_events${isMobile ? '_mobile' : ''}.jpeg`}/>
+                <h2>Special Events</h2>
+                <p>
+                    Special events are also a great way to bring people together while also sharing traditions. They are also a great way to attract new members!
+                    Here are some of the special events we have done at our Tea Time:
+                </p>
+                <ul>
+                    <li>Camping</li>
+                    <li>Pumpkin carving</li>
+                    <li>Corn maze</li>
+                    <li>Game night</li>
+                    <li>&quot;Friendsgiving&quot;</li>
+                    <li>Christmas party</li>
+                    <li>New Year's Eve party</li>
+                </ul>
             </div>
         </div>
     );
