@@ -21,10 +21,10 @@ export function About() {
                         <p>You are learning English and want a safe space to practice listening or speaking without judgement</p>
                     </li>
                     <li>
-                        <p>You are having trouble making friends and are looking for a casual hangout</p>
+                        <p>You are interested in making new friends and are looking for a casual hangout</p>
                     </li>
                     <li>
-                        <p>You want to meet people from all over the world and make them feel welcome (most people that come to America never make a personal connection with a local)</p>
+                        <p>You want to meet people from all over the world and make them feel welcome (most people that come to America never get invited to an American's home)</p>
                     </li>
                 </ul>
                 <h2>What happens at Tea Time?</h2>
@@ -43,7 +43,7 @@ export function About() {
                     English so we figured why not do both: providing them a safe space to practice English and a fun hangout for all!
                 </p>
                 <p>
-                    So far, our Tea Time has been attended by a variety of different cultures - from Turks to Ecuadorians, Ukranians, Pakistanis, Mexicans, and more!
+                    So far, our Tea Time has been attended by a variety of different cultures from more than 15 countries - from Turks to Ecuadorians, Ukranians, Pakistanis, Mexicans, and more!
                 </p>
             </div>
         </div>
