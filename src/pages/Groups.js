@@ -27,12 +27,19 @@ export function Groups() {
     const onSubmit = async result => {
         console.log(result);
 
-        await fetch("https://script.google.com/macros/s/AKfycbyNq3VPSRANLrCjnzpW1NKKYNjh-b3ovACRh04s1YkkZBL6AopjjGweYzQGB-WN2NMB/exec" /*Todo: use a proper server later*/, {
-            method: 'post',
-            body: JSON.stringify(result),
-        });
+        try {
+            await fetch("https://script.google.com/macros/s/AKfycbyNq3VPSRANLrCjnzpW1NKKYNjh-b3ovACRh04s1YkkZBL6AopjjGweYzQGB-WN2NMB/exec" /*Todo: use a proper server later*/, {
+                method: 'post',
+                body: JSON.stringify(result),
+            });
 
-        setSnackbarShown(true);
+            setSnackbarShown(true);
+        }
+        catch {
+            window.open(`mailto:contact@tea-time.social
+                ?subject=${encodeURIComponent(`I'm interested in ${result.target}`)}
+                &body=${encodeURIComponent(`My name is ${result.name} and I'm interested in ${result.target}`)}`);
+        }
     }
 
     Array.prototype.putItemFirst = function(matchFunc) {
