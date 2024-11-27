@@ -30,5 +30,13 @@
         "name" : "The Table",
         "meets" : "Every Sunday at 12pm",
         "thumbnail" : "images/group_images/4.jpg"
+    },
+    {
+        "id" : "5",
+        "city" : "Moscow, ID",
+        "location" : "International Student Center, University of Idaho",
+        "name" : "Chai Night",
+        "meets" : "Every Thursday at 5:30pm",
+        "thumbnail" : "images/group_images/5.jpg"
     }
 ]
