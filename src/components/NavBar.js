@@ -61,7 +61,7 @@ export function NavBar() {
     return (
         <nav className={`navbar navbar-dark bg-dark navbar-expand-lg fixed-top ${!isVisible ? 'hideNav' : navBarHasHiddenOnce ? 'showNav' : ''}`}>
             <Link className="navbar-brand" to="/">
-                <img className="m-2" src='images/icon.png' height="50"/>
+                <img className="m-2" src='/images/icon.png' height="50"/>
                 Tea Time
             </Link>
             <button className="navbar-toggler me-2" onClick={() => setCollapsed(!collapsed)}>
