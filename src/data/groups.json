@@ -24,14 +24,6 @@
         "thumbnail" : "images/group_images/3.jpg"
     },
     {
-        "id" : "4",
-        "city" : "Bothell, WA",
-        "location" : "Blakeley home",
-        "name" : "The Table",
-        "meets" : "Every Sunday at 12pm",
-        "thumbnail" : "images/group_images/4.jpg"
-    },
-    {
         "id" : "5",
         "city" : "Moscow, ID",
         "location" : "International Student Center, University of Idaho",
