@@ -75,8 +75,8 @@ function GroupCard(props) {
     return (
         <div style={{display: 'flex', flexDirection: isMobile ? 'column' : 'row', justifyContent: 'space-between', borderRadius: 20, backgroundColor: '#7a3f02',
                      border: 'solid black', padding: 20, margin: '10px 0px', width: isMobile ? 'calc(100% - 40px)' : 850}}>
-            <img style={{height: 250, objectFit: 'cover'}} src={baseUrl() + props.group.thumbnail}/>
-            <div style={{display: 'flex', flexDirection: 'column'}}>
+            <img style={{height: 250, objectFit: 'cover', width: !isMobile ? 'calc(50% - 10px)' : ''}} src={baseUrl() + props.group.thumbnail}/>
+            <div style={{display: 'flex', flexDirection: 'column', width: !isMobile ? 'calc(50% - 10px)' : ''}}>
                 <h3 style={{marginTop: 10}}>{props.group.name}</h3>
                 <p>{props.group.meets}</p>
                 <p>{props.group.location} in {props.group.city}</p>
