@@ -24,14 +24,6 @@
         "thumbnail" : "images/group_images/3.jpg"
     },
     {
-        "id" : "4",
-        "city" : "Mill Creek, WA",
-        "location" : "Mill Creek Foursquare Church",
-        "name" : "Tea Time North",
-        "meets" : "Every 2nd Monday at 7pm",
-        "thumbnail" : "images/group_images/4.jpg"
-    },
-    {
         "id" : "5",
         "city" : "Moscow, ID",
         "location" : "International Student Center, University of Idaho",
