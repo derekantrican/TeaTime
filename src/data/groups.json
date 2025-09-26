@@ -30,5 +30,13 @@
         "name" : "Chai Night",
         "meets" : "Every Thursday at 5:30pm",
         "thumbnail" : "images/group_images/5.jpg"
+    },
+    {
+        "id" : "6",
+        "city" : "Seattle, WA",
+        "location" : "U District (University of Washington)",
+        "name" : "Tea Time North Seattle",
+        "meets" : "Every Tuesday at 7pm",
+        "thumbnail" : "images/group_images/6.jpg"
     }
 ]
