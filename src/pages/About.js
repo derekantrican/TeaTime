@@ -13,7 +13,8 @@ export function About() {
     return (
         <div className='content'>
             <div style={{width: isMobile ? 'calc(100% - 40px)' : '75%'}}>
-                <img style={{width: '100%', height: isMobile ? 200 : '50%', objectFit: 'cover', marginTop: 20, borderRadius: 20 }} src={`images/about_banner${isMobile ? '_mobile' : ''}.jpeg`}/>
+                <img style={{width: '100%', height: isMobile ? 200 : '50%', objectFit: 'cover', marginTop: 20, borderRadius: 20 }} src={`images/about_banner${isMobile ? '_mobile' : ''}.jpeg`}
+                    alt='A group of people sitting around a backyard fire pit'/>
                 <h2>Who is Tea Time for?</h2>
                 <p>You might be interested in Tea Time if....</p>
                 <ul>

@@ -13,7 +13,8 @@ export function Guidelines() {
     return (
         <div className='content'>
             <div style={{width: isMobile ? 'calc(100% - 40px)' : '75%'}}>
-                <img style={{width: '100%', height: isMobile ? 200 : '50%', objectFit: 'cover', marginTop: 20, borderRadius: 20 }} src={`images/guidelines_banner${isMobile ? '_mobile' : ''}.jpeg`}/>
+                <img style={{width: '100%', height: isMobile ? 200 : '50%', objectFit: 'cover', marginTop: 20, borderRadius: 20 }} src={`images/guidelines_banner${isMobile ? '_mobile' : ''}.jpeg`}
+                    alt='A collection of mugs and teas on a table'/>
                 <h2>Rules</h2>
                 <p>There are only two rules for Tea Time:</p>
                 <ol>
@@ -59,7 +60,8 @@ export function Guidelines() {
                         </p>
                     </li>
                 </ul>
-                <img style={{width: '100%', height: isMobile ? 200 : '50%', objectFit: 'cover', marginTop: 20, borderRadius: 20 }} src={`images/special_events${isMobile ? '_mobile' : ''}.jpeg`}/>
+                <img style={{width: '100%', height: isMobile ? 200 : '50%', objectFit: 'cover', marginTop: 20, borderRadius: 20 }} src={`images/special_events${isMobile ? '_mobile' : ''}.jpeg`}
+                    alt='A group of people sitting around a campfire at a campsite'/>
                 <h2>Special Events</h2>
                 <p>
                     Special events are also a great way to bring people together while also sharing traditions. They are also a great way to attract new members!
