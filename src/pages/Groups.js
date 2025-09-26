@@ -6,7 +6,7 @@ import { Link, useParams } from 'react-router-dom';
 import ReactGA from "react-ga4";
 import { useIsMobile } from '../hooks/isMobile';
 
-const baseUrl = () => process.env.NODE_ENV != 'production' ? 'http://localhost:3000/' : 'https://tea-time.social/';
+const baseUrl = () => process.env.NODE_ENV !== 'production' ? 'http://localhost:3000/' : 'https://tea-time.social/';
 
 export function Groups() {
     const [userInfoDialogOpen, setUserInfoDialogOpen] = useState(false);
@@ -42,8 +42,8 @@ export function Groups() {
         }
     }
 
-    Array.prototype.putItemFirst = function(matchFunc) {
-        return this.reduce((array, element) => {
+    const putItemFirst = (currentArray, matchFunc) => {
+        return currentArray.reduce((array, element) => {
             if (matchFunc(element)) {
                 return [element, ...array];
             }
@@ -55,7 +55,7 @@ export function Groups() {
     return (
         <div className='content' style={{marginTop: 20}}>
             {/*Todo: if we eventually get a large amount of groups, we might want a "area" (eg Eastside, Tacoma, Seattle) filter or an embedded map*/}
-            {data.putItemFirst(group => groupParam && group.id == groupParam).map(group =>
+            {putItemFirst(data, group => groupParam && group.id === groupParam).map(group =>
                 <GroupCard key={group.id} group={group} openDialog={() => openDialog(group.name)}/>
             )}
             <button className='btn btn-outline-light btn-lg' style={{backgroundColor: 'rgba(130, 174, 245, 0.5)', marginTop: 50}}
@@ -75,7 +75,8 @@ function GroupCard(props) {
     return (
         <div style={{display: 'flex', flexDirection: isMobile ? 'column' : 'row', justifyContent: 'space-between', borderRadius: 20, backgroundColor: '#7a3f02',
                      border: 'solid black', padding: 20, margin: '10px 0px', width: isMobile ? 'calc(100% - 40px)' : 850}}>
-            <img style={{height: 250, objectFit: 'cover', width: !isMobile ? 'calc(50% - 10px)' : ''}} src={baseUrl() + props.group.thumbnail}/>
+            <img style={{height: 250, objectFit: 'cover', width: !isMobile ? 'calc(50% - 10px)' : ''}} src={baseUrl() + props.group.thumbnail}
+                alt={props.group.name}/>
             <div style={{display: 'flex', flexDirection: 'column', width: !isMobile ? 'calc(50% - 10px)' : ''}}>
                 <h3 style={{marginTop: 10}}>{props.group.name}</h3>
                 <p>{props.group.meets}</p>
@@ -103,15 +104,15 @@ function UserInfoDialog(props) {
             label: props.target,
             nonInteraction: false,
         });
-    }, []);
+    }, [props.target]);
 
     const onChange = (value, field) => {
         setResult((_result) => ({ ..._result, [field]: value }));
     }
 
-    useEffect(() => onChange(props.target, 'target'), []);
+    useEffect(() => onChange(props.target, 'target'), [props.target]);
 
-    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/g;
     const phoneRegex = /^(\+?\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/g;
 
     const onSubmit = () => {
@@ -153,7 +154,7 @@ function UserInfoDialog(props) {
     return (
         <Dialog open={props.open} onClose={() => props.onClose()}>
             <DialogContent>
-                {props.target == 'Host a group' ? 
+                {props.target === 'Host a group' ? 
                     <div>
                         <h4>Thanks for your interest in hosting a group!</h4>
                         <p><i>Make sure you have reviewed the rules & tips on the <Link to="/guidelines">guidelines page</Link>.</i></p>
@@ -165,15 +166,15 @@ function UserInfoDialog(props) {
                 </div>
                 }
                 <TextField autoFocus fullWidth margin="dense" label="Name" variant="standard"
-                    helperText={nameErrorMsg} error={nameErrorMsg != null}
+                    helperText={nameErrorMsg} error={nameErrorMsg !== null}
                     onChange={e => onChange(e.target.value, 'name')}/>
                 <TextField fullWidth margin="dense" label="Email" variant="standard"
-                    helperText={emailErrorMsg} error={emailErrorMsg != null}
+                    helperText={emailErrorMsg} error={emailErrorMsg !== null}
                     onChange={e => onChange(e.target.value, 'email')}/>
                 <TextField fullWidth margin="dense" label="Phone" variant="standard"
-                    helperText={phoneErrorMsg} error={phoneErrorMsg != null}
+                    helperText={phoneErrorMsg} error={phoneErrorMsg !== null}
                     onChange={e => onChange(e.target.value, 'phone')}/>
-                {props.target == 'Host a group' ?
+                {props.target === 'Host a group' ?
                     <TextField fullWidth multiline margin="dense" label="Tell us a little about yourself" variant="standard"
                         onChange={e => onChange(e.target.value, 'aboutMe')}/>
                 : null
