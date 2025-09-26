@@ -1,7 +1,9 @@
-import React, { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
+import { useIsMobile } from '../hooks/isMobile';
 
 export function NavBar() {
+    const isMobile = useIsMobile();
     const [collapsed, setCollapsed] = useState(true);
     const [navBarHasHiddenOnce, setNavBarHasHiddenOnce] = useState(false); //Use this to make show we don't run the 'showNav' animation when the page first loads
 
@@ -73,6 +75,9 @@ export function NavBar() {
                     <NavLink name="About" target="/about" onClick={() => setCollapsed(true)}/>
                     <NavLink name="Guidelines" target="/guidelines" onClick={() => setCollapsed(true)}/>
                     <NavLink name="Find a Group" target="/groups" onClick={() => setCollapsed(true)}/>
+                    <a style={{alignSelf: isMobile ? '' : 'center'}} href='https://www.instagram.com/teatime.social' target='_blank' rel='noreferrer'>
+                      <img className="m-2" height='32' src='/images/instagram.png' alt='instagram'/>
+                    </a>
                 </ul>
             </div>
         </nav>
