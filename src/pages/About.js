@@ -24,7 +24,7 @@ export function About() {
                         <p>You are interested in making new friends and are looking for a casual hangout</p>
                     </li>
                     <li>
-                        <p>You want to meet people from all over the world and make them feel welcome (most people that come to America never get invited to an American's home)</p>
+                        <p>You want to meet people from all over the world and make them feel welcome (many people that come to America never get invited to an American's home)</p>
                     </li>
                 </ul>
                 <h2>What happens at Tea Time?</h2>

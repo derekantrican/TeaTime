@@ -21,7 +21,7 @@ export function Guidelines() {
                         <p>Everyone is welcome, regardless of race, religion, culture, language level, or any other factor. Except...</p>
                     </li>
                     <li>
-                        <p>There is no judgement at Tea Time. If someone is openly judging others or making them feel uncomfortable, they are not welcome at Tea Time.</p>
+                        <p>Everyone must be respected at Tea Time. If someone is openly disrespecting others, they are not welcome at Tea Time.</p>
                     </li>
                 </ol>
                 <h2>Tips for a great Tea Time</h2>
