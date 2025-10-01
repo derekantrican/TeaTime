@@ -16,14 +16,6 @@
         "thumbnail" : "images/group_images/2.jpg"
     },
     {
-        "id" : "3",
-        "city" : "Rainier Beach, WA",
-        "location" : "Overmyer home",
-        "name" : "Tea Time South Seattle",
-        "meets" : "Every Tuesday at 6:30pm",
-        "thumbnail" : "images/group_images/3.jpg"
-    },
-    {
         "id" : "5",
         "city" : "Moscow, ID",
         "location" : "International Student Center, University of Idaho",
