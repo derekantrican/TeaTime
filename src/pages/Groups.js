@@ -5,6 +5,7 @@ import { Dialog, DialogActions, DialogContent, TextField, Button, Snackbar } fro
 import { Link, useParams } from 'react-router-dom';
 import ReactGA from "react-ga4";
 import { useIsMobile } from '../hooks/isMobile';
+import { useForm } from '@formspree/react';
 
 const baseUrl = () => process.env.NODE_ENV !== 'production' ? 'http://localhost:3000/' : 'https://tea-time.social/';
 
@@ -24,22 +25,8 @@ export function Groups() {
         setUserInfoDialogOpen(true);
     }
 
-    const onSubmit = async result => {
-        console.log(result);
-
-        try {
-            await fetch("https://script.google.com/macros/s/AKfycbyNq3VPSRANLrCjnzpW1NKKYNjh-b3ovACRh04s1YkkZBL6AopjjGweYzQGB-WN2NMB/exec" /*Todo: use a proper server later*/, {
-                method: 'post',
-                body: JSON.stringify(result),
-            });
-
-            setSnackbarShown(true);
-        }
-        catch {
-            window.open(`mailto:contact@tea-time.social
-                ?subject=${encodeURIComponent(`I'm interested in ${result.target}`)}
-                &body=${encodeURIComponent(`My name is ${result.name} and I'm interested in ${result.target}`)}`);
-        }
+    const onSuccess = () => {
+        setSnackbarShown(true);
     }
 
     const putItemFirst = (currentArray, matchFunc) => {
@@ -62,7 +49,7 @@ export function Groups() {
                 onClick={() => openDialog('Host a group')}>
                 Host your own group!
             </button>
-            <UserInfoDialog open={userInfoDialogOpen} target={dialogTarget} onClose={() => setUserInfoDialogOpen(false)} onSubmit={result => onSubmit(result)}/>
+            <UserInfoDialog open={userInfoDialogOpen} target={dialogTarget} onClose={() => setUserInfoDialogOpen(false)} onSuccess={() => onSuccess()}/>
             <Snackbar open={snackbarShown} autoHideDuration={3000} severity="success" onClose={() => setSnackbarShown(false)}
                 message="Sent! Someone will get in contact with you soon" anchorOrigin={{vertical: 'bottom', horizontal: 'right'}}/>
         </div>
@@ -92,6 +79,7 @@ function GroupCard(props) {
 }
 
 function UserInfoDialog(props) {
+    const [formspreeState, handleFormspreeSubmit] = useForm("xkokqoeq");
     const [nameErrorMsg, setNameErrorMsg] = useState();
     const [emailErrorMsg, setEmailErrorMsg] = useState();
     const [phoneErrorMsg, setPhoneErrorMsg] = useState();
@@ -111,6 +99,15 @@ function UserInfoDialog(props) {
     }
 
     useEffect(() => onChange(props.target, 'target'), [props.target]);
+
+    useEffect(() => {
+        if (formspreeState.succeeded) {
+            setResult({}); //Reset data in case form is opened again
+            props.onSuccess();
+            props.onClose();
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [formspreeState.succeeded]);
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/g;
     const phoneRegex = /^(\+?\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/g;
@@ -144,11 +141,7 @@ function UserInfoDialog(props) {
             setPhoneErrorMsg(null);
         }
 
-        props.onSubmit(result);
-
-        setResult({}); //Reset data in case form is opened again
-
-        props.onClose();
+        handleFormspreeSubmit(result);
     };
 
     return (
@@ -182,7 +175,7 @@ function UserInfoDialog(props) {
             </DialogContent>
             <DialogActions>
               <Button onClick={() => props.onClose()}>Cancel</Button>
-              <Button onClick={() => onSubmit()}>Submit</Button>
+              <Button onClick={() => onSubmit()} disabled={formspreeState.submitting}>Submit</Button>
             </DialogActions>
         </Dialog>
     );
